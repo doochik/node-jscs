@@ -403,6 +403,20 @@ Example configuration:
     "disallowKeywordsOnNewLine": ["else"],
 
     /*
+       Option: disallowAccessToPrivateProps
+       Disallow access to private properies and methods like 'myObj._foo()'
+       You can configure wich object names are allowed to access to private vars. 'this' keyword is always allowed.
+
+       Valid example:
+       this._foo() // 'this' is always allow
+       that._foo() // 'that' is allowed by config
+
+       Invalid example:
+       foo._bar()
+    */
+    "disallowAccessToPrivateProps": ["that"],
+
+    /*
         Option: requireKeywordsOnNewLine
         Requires placing keywords on a new line.
 
