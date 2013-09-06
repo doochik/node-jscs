@@ -16,13 +16,16 @@ describe('rules/disallow-acccess-to-private-props', function() {
         'myObj._test()': 1,
         'myObj["_test"]()': 1,
         'self._actions[action.id] = action': 1,
+        'this._data[id]._options = 1': 1,
+        'myNS.func()._data': 1,
 
         'this._test()': 0,
         'that._test': 0,
         'this._actions[action.id] = action': 0,
-        'foo.bar._prop = null': 0, // failed test
+        'foo.bar._prop = null': 0,
+        'myNs.myClass.prototype._privateMethod = function(){}': 0,
 
-        'this[1]': 0 // this test for error "1 has nomethod charAt"
+        'this[1]': 0
     };
 
     for (var testCode in tests) {
